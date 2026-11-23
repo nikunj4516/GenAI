@@ -17,13 +17,13 @@ import re
 import string
 import sys
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ROOT = os.path.dirname(os.path.abspath(__file__))
 if ROOT not in sys.path:
     sys.path.insert(0, ROOT)
 
 from sklearn.feature_extraction.text import ENGLISH_STOP_WORDS
 
-from PART1_Data_Preprocessing.task1_load_dataset import load_data
+from task1_load_dataset import load_data
 
 STOPWORDS = set(ENGLISH_STOP_WORDS)
 PUNCT_TABLE = str.maketrans("", "", string.punctuation)

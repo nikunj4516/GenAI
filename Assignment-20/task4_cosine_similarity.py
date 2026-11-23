@@ -15,16 +15,16 @@ Run:  python PART2_Text_Vectorization/task4_cosine_similarity.py
 import os
 import sys
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ROOT = os.path.dirname(os.path.abspath(__file__))
 if ROOT not in sys.path:
     sys.path.insert(0, ROOT)
 
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 
-from PART1_Data_Preprocessing.task1_load_dataset import load_data
-from PART1_Data_Preprocessing.task2_text_preprocessing import preprocess
-from PART2_Text_Vectorization.task3_tfidf import build_tfidf
+from task1_load_dataset import load_data
+from task2_text_preprocessing import preprocess
+from task3_tfidf import build_tfidf
 
 
 def build_similarity(matrix):

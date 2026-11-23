@@ -10,9 +10,11 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 if ROOT not in sys.path:
     sys.path.insert(0, ROOT)
 
-from PART1_Data_Preprocessing import task1_load_dataset, task2_text_preprocessing
-from PART2_Text_Vectorization import task3_tfidf, task4_cosine_similarity
-from PART3_Recommendation_Logic import task5_recommend_function
+import task1_load_dataset
+import task2_text_preprocessing
+import task3_tfidf
+import task4_cosine_similarity
+import task5_recommend_function
 
 for task in (
     task1_load_dataset,

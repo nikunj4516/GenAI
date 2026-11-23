@@ -14,16 +14,16 @@ Run:  python PART3_Recommendation_Logic/task5_recommend_function.py
 import os
 import sys
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ROOT = os.path.dirname(os.path.abspath(__file__))
 if ROOT not in sys.path:
     sys.path.insert(0, ROOT)
 
 import pandas as pd
 
-from PART1_Data_Preprocessing.task1_load_dataset import load_data
-from PART1_Data_Preprocessing.task2_text_preprocessing import preprocess
-from PART2_Text_Vectorization.task3_tfidf import build_tfidf
-from PART2_Text_Vectorization.task4_cosine_similarity import build_similarity
+from task1_load_dataset import load_data
+from task2_text_preprocessing import preprocess
+from task3_tfidf import build_tfidf
+from task4_cosine_similarity import build_similarity
 
 _MODEL = {}  # built once, reused on every call (keeps the app fast)
 

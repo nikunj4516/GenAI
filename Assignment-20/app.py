@@ -12,6 +12,6 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 if ROOT not in sys.path:
     sys.path.insert(0, ROOT)
 
-from PART4_Simple_App_Interface.task6_streamlit_ui import main
+from task6_streamlit_ui import main
 
 main()

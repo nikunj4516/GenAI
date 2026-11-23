@@ -12,13 +12,13 @@ Run (from the project root):  streamlit run app.py
 import os
 import sys
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ROOT = os.path.dirname(os.path.abspath(__file__))
 if ROOT not in sys.path:
     sys.path.insert(0, ROOT)
 
 import streamlit as st
 
-from PART3_Recommendation_Logic.task5_recommend_function import (
+from task5_recommend_function import (
     get_model,
     get_titles,
     recommend,

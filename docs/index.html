@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Movie Recommendation System</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #111827;
+      --panel: #1f2937;
+      --accent: #60a5fa;
+      --text: #f9fafb;
+      --muted: #d1d5db;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, sans-serif;
+    }
+    main {
+      width: min(850px, calc(100% - 32px));
+      margin: 40px auto;
+    }
+    h1 { margin-bottom: 8px; }
+    .subtitle { color: var(--muted); margin-top: 0; }
+    .controls {
+      display: flex;
+      gap: 12px;
+      margin: 24px 0;
+    }
+    select, button {
+      border-radius: 8px;
+      border: 1px solid #4b5563;
+      background: var(--panel);
+      color: var(--text);
+      padding: 12px;
+      font-size: 16px;
+    }
+    select { flex: 1; }
+    button {
+      background: #2563eb;
+      border: none;
+      cursor: pointer;
+    }
+    .card {
+      background: var(--panel);
+      border-radius: 10px;
+      padding: 16px;
+      margin: 12px 0;
+    }
+    .card strong { color: var(--accent); }
+    .meta { color: var(--muted); font-size: 14px; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Movie Recommendation System</h1>
+    <p class="subtitle">Content-based recommendations using TF-IDF and cosine similarity.</p>
+    <div class="controls">
+      <select id="movie" aria-label="Select a movie">
+        <option>Avatar</option>
+        <option>The Dark Knight</option>
+        <option>Toy Story</option>
+        <option>The Godfather</option>
+      </select>
+      <button id="recommend" type="button">Recommend</button>
+    </div>
+    <div id="results"></div>
+  </main>
+  <script>
+    const recommendations = {
+      "Avatar": [
+        ["Titan A.E.", "Animation, Action, Science Fiction, Family, Adventure", "0.2000"],
+        ["Star Trek Into Darkness", "Action, Adventure, Science Fiction", "0.1960"],
+        ["Galaxina", "Comedy, Science Fiction", "0.1769"],
+        ["Apollo 18", "Horror, Thriller, Science Fiction", "0.1721"],
+        ["Small Soldiers", "Comedy, Adventure, Fantasy, Science Fiction, Action", "0.1604"]
+      ],
+      "The Dark Knight": [
+        ["The Dark Knight Rises", "Action, Crime, Drama, Thriller", "0.4238"],
+        ["Batman Returns", "Action, Fantasy", "0.3796"],
+        ["Batman Begins", "Action, Crime, Drama", "0.3288"],
+        ["Batman: The Dark Knight Returns, Part 2", "Action, Animation", "0.3033"],
+        ["Batman Forever", "Action, Crime, Fantasy", "0.2893"]
+      ],
+      "Toy Story": [
+        ["Toy Story 2", "Animation, Comedy, Family", "0.4178"],
+        ["Toy Story 3", "Animation, Family, Comedy", "0.2870"],
+        ["Small Soldiers", "Comedy, Adventure, Fantasy, Science Fiction, Action", "0.1472"],
+        ["A LEGO Brickumentary", "Documentary", "0.1403"],
+        ["Free Birds", "Animation, Comedy, Family", "0.1359"]
+      ],
+      "The Godfather": [
+        ["The Godfather: Part II", "Drama, Crime", "0.2421"],
+        ["Blood Ties", "Thriller, Crime, Drama", "0.2348"],
+        ["Easy Money", "Drama, Thriller, Crime", "0.1778"],
+        ["Made", "Action, Comedy, Thriller", "0.1753"],
+        ["Thinner", "Horror, Thriller", "0.1627"]
+      ]
+    };
+
+    function showResults() {
+      const movie = document.getElementById("movie").value;
+      const results = document.getElementById("results");
+      results.innerHTML = "<h2>Because you picked: " + movie + "</h2>";
+      recommendations[movie].forEach((item, index) => {
+        results.innerHTML +=
+          '<div class="card"><strong>' + (index + 1) + '. ' + item[0] +
+          '</strong><div class="meta">Genres: ' + item[1] +
+          ' | Similarity: ' + item[2] + '</div></div>';
+      });
+    }
+
+    document.getElementById("recommend").addEventListener("click", showResults);
+    showResults();
+  </script>
+</body>
+</html>

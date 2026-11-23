@@ -12,14 +12,14 @@ Run:  python PART2_Text_Vectorization/task3_tfidf.py
 import os
 import sys
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ROOT = os.path.dirname(os.path.abspath(__file__))
 if ROOT not in sys.path:
     sys.path.insert(0, ROOT)
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 
-from PART1_Data_Preprocessing.task1_load_dataset import load_data
-from PART1_Data_Preprocessing.task2_text_preprocessing import preprocess
+from task1_load_dataset import load_data
+from task2_text_preprocessing import preprocess
 
 
 def build_tfidf(df, max_features=5000, ngram_range=(1, 2)):
