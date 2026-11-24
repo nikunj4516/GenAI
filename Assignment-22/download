@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+.DS_Store
+
+# secrets - never commit your API key
+.env
+
+# generated vector stores (rebuilt by the tasks)
+vectorstores/
