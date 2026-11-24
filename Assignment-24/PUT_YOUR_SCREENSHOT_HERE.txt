@@ -1,0 +1,1 @@
+Save your LangSmith screenshot(s) in this folder (see ../SCREENSHOT_GUIDE.md), then upload them to Drive.
